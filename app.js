@@ -5,10 +5,6 @@ const app = express();
 
 app.use(express.static('public'))
 
-router.get("/", (req, res)=>{
-    res.sendFile('/public/home.html');
-})
-
 app.get('/', (req, res)=>{
     res.sendFile(__dirname + '/public/home.html');
 })
@@ -36,8 +32,6 @@ app.get('/update', (req, res)=>{
 app.get('/delete', (req, res)=>{
     res.sendFile(__dirname + '/public/delete.html');
 })
-
-app.use('/.netlify/function/public/home', router)
 
 app.listen(port, ()=>{
     console.log(`Port running at http://localhost:${port}`)
